@@ -1,0 +1,188 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #161616;
+    height: 200px;
+    background-image: linear-gradient(to right, rgb(0, 97, 104), rgb(27, 26, 26),rgb(0, 0, 0));
+  
+}
+
+
+
+.App {
+    text-align: center;
+    padding: 20px;
+}
+
+h1, h2 {
+    color: #00f7ff;
+}
+
+ul {
+    list-style: none;
+    padding: 0;
+}
+
+ul li {
+    margin: auto 20px;
+}
+
+a {
+    text-decoration: none;
+    color: #00ffea;
+}
+
+span {
+    text-decoration: none;
+    color: #ecf3f2;
+}
+
+li {
+    display: inline;
+    margin: 0 auto 6px 55px;
+    text-decoration: none;
+    color: #00ffea;
+    
+}
+
+p {
+    
+    text-decoration: none;
+    font: 1em sans-serif;
+    color: #fdfdfd;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+form {
+    background: #cabfbf;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    max-width: 400px;
+    margin: 20px auto;
+}
+
+form div {
+    margin-bottom: 15px;
+}
+
+form label {
+    display: block;
+    margin-bottom: 5px;
+    color: #555;
+}
+
+form input, form textarea {
+    width: 90%;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+}
+
+form button {
+    background-color: #28a745;
+    color: #fff;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+form button:hover {
+    background-color: #218838;
+}
+
+.contact-info ul li {
+    margin: 5px 0;
+}
+nav a {
+    margin: 10 10 10 10;
+    text-decoration: solid;
+    color: rgb(0, 217, 255);
+
+}
+
+nav a:hover {
+    text-decoration: solid;
+}
+
+button {
+    margin-top: 10px;
+    
+}
+
+input {
+    margin: 5px;
+    padding: 5px;
+}
+a:link, a:visited {
+    background-color: rgb(0, 128, 128);
+    color: rgb(255, 255, 255);
+    border-radius: 15%;
+    border: 2px rgb(220, 250, 250);
+    padding: 10px 20px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    margin-bottom: 3%;
+  }
+  
+  a:hover, a:active {
+    background-color: rgb(235, 250, 250);
+    color: rgb(19, 17, 17);
+  }
+  .nitin {
+    width: 100px;
+    height: 100px;
+    border-radius: 15%;
+    background: rgb(255, 255, 255);
+    transition: width 2s, height 2s, transform 2s;
+  }
+  
+  .nitin:hover {
+    width: 300px;
+    height: 300px;
+    background: #0000009d;
+    transform: rotate(180deg);
+  }
+.satya {
+    width: 100000px;
+    height: 25%;
+    border-radius: 50%;
+    background-color: rgb(0, 0, 0);
+    position: relative;
+    animation-name: example;
+    animation-duration: 4s;
+    animation-iteration-count: infinite;
+  }
+  
+  @keyframes example {
+    0%   {background-color:rgb(255, 255, 255); left:0px; top:0px;}
+    25%  {background-color:rgb(94, 91, 91); left:200px; top:0px;}
+    50%  {background-color:rgb(0, 99, 102); left:400px; top:0px;}
+    65%  {background-color:rgb(19, 19, 19); left:600px; top:0px;}
+    80% {background-color:rgb(0, 0, 0); left:10000px; right:0px;}
+    100% {background-color:rgb(0, 0, 0); left:10000px; right:0px;}
+  }
+
+  .Abcd-logl {
+    height: 50px;
+    pointer-events: none;
+  }
+  @media (prefers-reduced-motion: no-preference) {
+    .Abcd-logl {
+      animation: App-logo-spin infinite 1s linear;
+    }
+  }
+  @keyframes App-log-spin {
+    from {
+      transform: rotate(360deg);
+    }
+    to {
+      transform: rotate(0deg);
+    }
+  }
