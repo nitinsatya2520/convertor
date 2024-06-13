@@ -4,51 +4,95 @@ import axios from 'axios';
 import './App.css';
 
 
+const units = ['Bytes', 'Kilobytes', 'Megabytes', 'Gigabytes', 'Terabytes'];
+
 const ByteConverter = () => {
-    const [value, setValue] = useState('');
-    const [fromUnit, setFromUnit] = useState('bytes');
-    const [toUnit, setToUnit] = useState('KB');
-    const [result, setResult] = useState(null);
+  const [inputValue, setInputValue] = useState('');
+  const [inputUnit, setInputUnit] = useState('Bytes');
+  const [outputUnit, setOutputUnit] = useState('Kilobytes');
+  const [convertedValue, setConvertedValue] = useState(null);
 
-    const convert = async () => {
-        const res = await axios.post('http://localhost:5000/api/byte-converter', {
-            value,
-            fromUnit,
-            toUnit
-        });
-        setResult(res.data.convertedValue);
-    };
+  const conversionRates = {
+    Bytes: 1,
+    Kilobytes: 1024,
+    Megabytes: 1024 * 1024,
+    Gigabytes: 1024 * 1024 * 1024,
+    Terabytes: 1024 * 1024 * 1024 * 1024,
+  };
 
-    return (
+  const handleConversion = (e) => {
+    e.preventDefault();
+    if (inputValue === '' || isNaN(inputValue)) {
+      setConvertedValue('Invalid input');
+      return;
+    }
+
+    const inputInBytes = parseFloat(inputValue) * conversionRates[inputUnit];
+    const outputValue = inputInBytes / conversionRates[outputUnit];
+    setConvertedValue(outputValue);
+  };
+
+  return (
+    <div>
+      <h2>Byte Converter</h2>
+      <form onSubmit={handleConversion}>
         <div>
-            <h2>Byte Converter</h2>
-            <input type="number" value={value} onChange={e => setValue(e.target.value)} />
-            <select value={fromUnit} onChange={e => setFromUnit(e.target.value)}>
-                <option value="bytes">Bytes</option>
-                <option value="KB">KB</option>
-                <option value="MB">MB</option>
-                <option value="GB">GB</option>
-                <option value="TB">TB</option>
+          <label>
+            Value:
+            <input
+              type="text"
+              value={inputValue}
+              onChange={(e) => setInputValue(e.target.value)}
+              required
+            />
+          </label>
+        </div>
+        <div>
+          <label>
+            From:
+            <select value={inputUnit} onChange={(e) => setInputUnit(e.target.value)}>
+              {units.map((unit) => (
+                <option key={unit} value={unit}>
+                  {unit}
+                </option>
+              ))}
             </select>
-            <select value={toUnit} onChange={e => setToUnit(e.target.value)}>
-                <option value="bytes">Bytes</option>
-                <option value="KB">KB</option>
-                <option value="MB">MB</option>
-                <option value="GB">GB</option>
-                <option value="TB">TB</option>
+          </label>
+        </div>
+        <div>
+          <label>
+            To:
+            <select value={outputUnit} onChange={(e) => setOutputUnit(e.target.value)}>
+              {units.map((unit) => (
+                <option key={unit} value={unit}>
+                  {unit}
+                </option>
+              ))}
             </select>
-            <button onClick={convert}>Convert</button>
-            {result && <div>Result: {result}</div>}
+          </label>
+        </div>
+        <button type="submit">Convert</button>
+      </form>
+      {convertedValue !== null && (
+        <div>
+          <h3>Converted Value:</h3>
+          <p>
+            {inputValue} {inputUnit} = {convertedValue} {outputUnit}
+          </p>
+        </div>
+      )}
 
-            <header className="App-header">
+
+<header className="App-header">
     <img src={logo} className="App-logo" alt="logo" />
     
   </header>
-            
-        </div>
 
-        
-    );
+    </div>
+  );
 };
 
 export default ByteConverter;
+
+
+
